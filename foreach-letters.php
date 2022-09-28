@@ -1,5 +1,5 @@
 <?php
-for ($i = 65; $i <= 89; $i++) {
-    echo chr($i) . " | ";
+foreach (range('A', 'Y') as $char) {
+    echo $char . " | ";
 }
 echo "Z";
