@@ -1,10 +1,10 @@
 <?php
 
-$x = 50;
-$y = 50;
+$firstNbr = 50;
+$secondNbr = 50;
 
-$firstSum = $x + $y;
-$firstSum = $x - $y;
-$firstMult = $x * $y;
-$firstDivision = $x / $y;
-$firstModulus = $x % $y;
+$firstSum = $firstNbr + $secondNbr;
+$firstSum = $firstNbr - $secondNbr;
+$firstMult = $firstNbr * $secondNbr;
+$firstDivision = $firstNbr / $secondNbr;
+$firstModulus = $firstNbr % $secondNbr;
