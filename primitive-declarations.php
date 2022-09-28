@@ -1,6 +1,6 @@
 <?php
 
-$firstStr = "Hi!";
+$firstStr = "Hi";
 $firstEscapeStr = "\n";
 $firstBool = false;
 $firstInteger = 2;
