@@ -1,7 +1,7 @@
 <?php
 
-$firstNbr = 50;
-$secondNbr = 50;
+$firstNbr = 100;
+$secondNbr = 35;
 
 $firstSum = $firstNbr + $secondNbr;
 $firstSum = $firstNbr - $secondNbr;
