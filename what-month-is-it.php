@@ -1,16 +1,42 @@
 <?php
 $month = 1;
-$test_array = array(1 => "January",
-                    2 => "February",
-                    3 => "March",
-                    4 => "April",
-                    5 => "May",
-                    6 => "June",
-                    7 => "July",
-                    8 => "August",
-                    9 => "September",
-                    10 => "October",
-                    11 => "November",
-                    12 => "December",
-);
-echo  "We are in the month of " . $test_array[$month];
+$nameOfMonth = "";
+switch ($month) {
+    case 1:
+        $nameOfMonth = "January";
+        break;
+    case 2:
+        $nameOfMonth = "February";
+        break;
+    case 3:
+        $nameOfMonth = "March";
+        break;
+    case 4:
+        $nameOfMonth = "April";
+        break;
+    case 5:
+        $nameOfMonth = "May";
+        break;
+    case 6:
+        $nameOfMonth = "June";
+        break;
+    case 7:
+        $nameOfMonth = "July";
+        break;
+    case 8:
+        $nameOfMonth = "August";
+        break;
+    case 9:
+        $nameOfMonth = "September";
+        break;
+    case 10:
+        $nameOfMonth = "October";
+        break;
+    case 11:
+        $nameOfMonth = "November";
+        break;
+    case 12:
+        $nameOfMonth = "December";
+        break;
+}
+echo "We are in the month of $nameOfMonth";
