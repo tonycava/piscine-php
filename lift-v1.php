@@ -1,7 +1,8 @@
 <?php
 
-function getFloor(int $current, int|null $requested, array $list): int
+function getFloor(int $current, int|null $requested, array $list): ?int
 {
+    if ($requested == null) return null;
     return $current;
 }
 
