@@ -1,6 +1,5 @@
 <?php
 
-function breakLines(string $str, int $at)
-{
+function breakLines(string $str, int $at): string{
     return wordwrap($str, $at);
 }
