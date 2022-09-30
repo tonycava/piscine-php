@@ -1,22 +1,11 @@
 <?php
 
-$sub = function (int $x, int $y): int {
-    return $x - $y;
-};
-
-$add = function (int $x, int $y): int {
-    return $x + $y;
-};
-
-$mult = function (int $x, int $y): int {
-    return $x * $y;
-};
-
-$toReturn = [$add, $sub, $mult];
-
-function f(): array
+function f() use(&$add)
 {
-    $toReturn = [];
-    return $toReturn;
+    return array(
+        "+" => static fn (int $x, int $y) => $x + $y,
+        "-" => static fn (int $x, int $y) => $x - $y,
+        "*" => static fn (int $x, int $y) => $x * $y,
+    );
 }
 
