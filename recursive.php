@@ -1,11 +1,6 @@
 <?php
 function factorial(int $arg): float
 {
-    $result = 1;
-    for ($i = $arg; $i >= 1; $i--) {
-        $result *= $i;
-    }
-    return $result;
+    if ($arg <= 1) return 1;
+    return $arg * factorial($arg - 1);
 }
-
-echo factorial(35);
