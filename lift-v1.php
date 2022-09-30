@@ -3,8 +3,7 @@
 function getFloor(int $current, int|null $requested, array $list): ?int
 {
     if (count($list) > 0) return end($list);
-    if ($requested == null && count($list) == 0) return $current;
-    if ($requested == null) return null;
+    if ($requested == null && count($list) == 0) return null;
     return $requested;
 }
 
