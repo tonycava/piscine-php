@@ -1,10 +1,10 @@
 <?php
-function reverser(string $str): string
+function reverse(string $str): string
 {
     return strrev($str);
 }
 
 function isPalindrome(string $str): bool
 {
-    return $str == reverser($str);
+    return $str === reverse($str);
 }
