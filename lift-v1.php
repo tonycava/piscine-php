@@ -2,7 +2,9 @@
 
 function getFloor(int $current, int|null $requested, array $list): ?int
 {
+    if ($requested == null) return $current;
     if (count($list) > 1) return end($list);
+
     if ($requested == null && count($list) == 0) return null;
     return $requested;
 }
