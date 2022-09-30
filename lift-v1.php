@@ -3,8 +3,9 @@
 function getFloor(int $current, int|null $requested, array $list): ?int
 {
     if (count($list) > 0) return end($list);
-    return null;
-//    return $current;
+    if ($requested == null && count($list) == 0) return $current;
+    if ($requested == null) return null;
+    return $requested;
 }
 
 function getDirection(int $current, int|null $requested, array $list): int
