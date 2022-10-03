@@ -1,8 +1,8 @@
 <?php
 function myArrayMap(
-    callable $func,
-    array    $arr,
-    array    ...$arr2
+    callable|null $func,
+    array|null   $arr,
+    array|null    ...$arr2
 )
 {
     $result = [];
