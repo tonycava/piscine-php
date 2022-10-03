@@ -1,11 +1,10 @@
 <?php
 function findMaximumSubarray(array $arr): int|float
 {
-    $n = count($arr);
     $max_sum = 0;
     $current_sum = 0;
 
-    for ($i = 0; $i < $n; $i++) {
+    for ($i = 0; $i < count($arr); $i++) {
         $current_sum += $arr[$i];
 
         if ($current_sum < 0) $current_sum = 0;
