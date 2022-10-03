@@ -4,7 +4,7 @@ function manageMovements(string $mouvements): array
 {
     $res = [];
 
-    for ($i = 1; $i < strlen($mouvements); $i++) {
+    for ($i = 0; $i < strlen($mouvements); $i++) {
 
         $last = $mouvements[$i - 1];
         $actual = $mouvements[$i];
@@ -25,4 +25,4 @@ function manageMovements(string $mouvements): array
     return $res;
 }
 
-print_r(manageMovements("RRL"));
+print_r(manageMovements("RLB"));
