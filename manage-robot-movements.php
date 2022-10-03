@@ -4,16 +4,16 @@ function manageMovements(string $mouvements): array
 {
     $res = [];
 
+
     for ($i = 0; $i < strlen($mouvements); $i++) {
 
         $last = $mouvements[$i - 1];
         $actual = $mouvements[$i];
 
-
-        if ($last == $actual && $last = "R" && $actual == "R") array_push($res, "RIGHT AGAIN");
-        else if ($last == $actual && $last = "L" && $actual == "L") array_push($res, "LEFT AGAIN");
-        else if ($last == $actual && $last = "F" && $actual == "F") array_push($res, "FRONT AGAIN");
-        else if ($last == $actual && $last = "B" && $actual == "B") array_push($res, "BACKWARDS AGAIN");
+        if ($last == "R" && $actual == "R") array_push($res, "RIGHT AGAIN");
+        else if ($last == "L" && $actual == "L") array_push($res, "LEFT AGAIN");
+        else if ($last == "F" && $actual == "F") array_push($res, "FRONT AGAIN");
+        else if ($last == "B" && $actual == "B") array_push($res, "BACKWARDS AGAIN");
 
         else if ($actual == "R") array_push($res, "RIGHT");
         else if ($actual == "L") array_push($res, "LEFT");
@@ -24,5 +24,6 @@ function manageMovements(string $mouvements): array
 
     return $res;
 }
-
 print_r(manageMovements("RLB"));
+
+print_r(manageMovements("RRLFFB"));
