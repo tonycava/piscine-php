@@ -5,5 +5,5 @@ function dnaDiff(string $code, string $code2): int {
     for ($i = 0; $i< strlen($code); $i++) {
         if ($code[$i] != $code2[$i]) $total += 1;
     }
-    return $total;
+    return $total != 0 ? false : 0;
 }
