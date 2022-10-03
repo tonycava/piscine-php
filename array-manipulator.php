@@ -1,12 +1,12 @@
 <?php
 function reverse(array $arr): array
 {
-    return array_reverse($arr);
+    return array_reverse($arr, true);
 }
 
-function push(array $arr, string...$new): int
+function push(array $arr, string...$new): array
 {
-    return count([$arr, ...$new]);
+    return [$arr, ...$new];
 }
 
 function sum(array $arr): int
