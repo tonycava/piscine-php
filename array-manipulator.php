@@ -6,7 +6,7 @@ function reverse(array $arr): array
 
 function push(array $arr, string ...$new): array
 {
-    return array($arr, ...$new);
+    return [...$arr, ...$new];
 }
 
 function sum(array $arr): int
