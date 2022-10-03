@@ -8,40 +8,37 @@ function myArrayMap(
     $result = [];
 
     foreach ($arr as $key => $value) {
-        $updated_key = $func($key);
-
         if (!is_array($value)) {
-            $result[$updated_key] = $func($value);
+            array_push($result, $func($value));
 
         } else {
-            $result[$updated_key] = myArrayMap(
+            array_push($result,myArrayMap(
                 $func,
                 $arr[$key],
                 $arr2
-            );
+            ));
         }
     }
 
 
     if ($arr2 != null) {
         foreach ($arr as $key => $value) {
-
-            $updated_key = $func($key);
             if (!is_array($value)) {
-                $result[$updated_key] = $func($value);
+                array_push($result, $func($value));
 
             } else {
-                $result[$updated_key] = myArrayMap(
+                array_push($result,myArrayMap(
                     $func,
                     $arr[$key],
                     $arr2
-
-                );
+                ));
             }
         }
     }
 
 
     return $result;
-
 }
+
+print_r(myArrayMap(static fn($n) => $n * $n * $n, [1, 2, 3, 4, 5]));
+print_r([1,2,3]);
