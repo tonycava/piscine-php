@@ -1,22 +1,22 @@
 <?php
 function myArrayMap(
-    callable|null $func,
-    array|null   $arr,
-    array|null    ...$arr2
+    callable $func = null,
+    array   $arr,
+    array    ...$arr2
 )
 {
     $result = [];
 
     foreach ($arr as $key => $value) {
         if (!is_array($value)) {
-            array_push($result, $func($value));
+            $result[] = $func($value);
 
         } else {
-            array_push($result,myArrayMap(
+            $result[] = myArrayMap(
                 $func,
                 $arr[$key],
                 $arr2
-            ));
+            );
         }
     }
 
@@ -24,14 +24,14 @@ function myArrayMap(
     if ($arr2 != null) {
         foreach ($arr as $key => $value) {
             if (!is_array($value)) {
-                array_push($result, $func($value));
+                $result[] = $func($value);
 
             } else {
-                array_push($result,myArrayMap(
+                $result[] = myArrayMap(
                     $func,
                     $arr[$key],
                     $arr2
-                ));
+                );
             }
         }
     }
