@@ -1,12 +1,12 @@
 <?php
 function reverse(array $arr): array
 {
-    return array_reverse($arr, true);
+    return array_reverse($arr);
 }
 
-function push(array $arr, string...$new): array
+function push(array $arr, string ...$new): array
 {
-    return [$arr, ...$new];
+    return array($arr, ...$new);
 }
 
 function sum(array $arr): int
@@ -24,3 +24,5 @@ function merge(array $arr1, array $arr2, array $arr3)
 {
     return array_merge($arr1, $arr2, $arr3);
 }
+
+print_r(push(["test"], "one", "tow"));
