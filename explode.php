@@ -33,7 +33,7 @@ function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_IN
 
 
     for ($i = 0; $i < count($res); $i++) {
-        $res[$i] = str_replace('\\', '', $res[$i]);
+        $res[$i] = str_replace('\/', '/', $res[$i]);
     }
 
     return $res;
