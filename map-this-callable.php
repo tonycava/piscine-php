@@ -7,13 +7,13 @@ function myArrayMap(
     $result = [];
 
     foreach ($arr as $key => $value) {
+
         $updated_key = $func($key);
         if (!is_array($value)) {
-
             $result[$updated_key] = $func($value);
 
         } else {
-            $result[$updated_key] = array_map_recursive(
+            $result[$updated_key] = myArrayMap(
                 $func,
                 $arr[$key]
             );
