@@ -1,5 +1,5 @@
 <?php
-function array_map_recursive(
+function myArrayMap(
     callable $func,
     array    $arr
 )
@@ -7,7 +7,6 @@ function array_map_recursive(
     $result = [];
 
     foreach ($arr as $key => $value) {
-
         $updated_key = $func($key);
         if (!is_array($value)) {
 
