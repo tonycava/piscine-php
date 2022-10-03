@@ -1,12 +1,9 @@
 <?php
-function myArrayMap(
-    callable $func,
-    array    $arr,
-    array    ...$arr2
-)
+
+function myArrayMap(callable $func, array $arr, array    ...$arr2)
 {
 
-    if ($func == null) return [];
+    if ($func == null) return $arr;
 
     $result = [];
 
