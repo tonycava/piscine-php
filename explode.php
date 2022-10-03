@@ -31,6 +31,11 @@ function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_IN
         }
     }
 
+
+    for ($i = 0; $i < count($res); $i++) {
+        $res[$i] = str_replace('\\', '', $res[$i]);
+    }
+
     return $res;
 }
 
@@ -41,3 +46,5 @@ print_r(explodeWords('My-name/is-John', '/')); // ['My-name', 'is-John']
 print_r(explodeWords('My-name/is-John/and-i-love-apple', '/', 2)); // ['My-name', 'is-John/and-i-love-apple']
 
 print_r(explodeWords('My-name/is-John/and-i-love-apple', '/', -1)); // ['My-name', 'is-John']
+
+print_r(explodeWords('La-fonction/explode/est/trop-bien', '/', 2)); // ['My-name', 'is-John']
