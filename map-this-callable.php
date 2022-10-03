@@ -1,10 +1,13 @@
 <?php
 function myArrayMap(
-    callable $func = null,
-    array   $arr,
+    callable $func,
+    array    $arr,
     array    ...$arr2
 )
 {
+
+    if ($func == null) return [];
+
     $result = [];
 
     foreach ($arr as $key => $value) {
@@ -41,4 +44,4 @@ function myArrayMap(
 }
 
 print_r(myArrayMap(static fn($n) => $n * $n * $n, [1, 2, 3, 4, 5]));
-print_r([1,2,3]);
+print_r([1, 2, 3]);
