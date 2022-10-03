@@ -1,6 +1,6 @@
 <?php
 
-function myArrayFilter(array $arr = [], callable $func): array
+function myArrayFilter(callable $func, array $arr = []): array
 {
     $result = [];
 
