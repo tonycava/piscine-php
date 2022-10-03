@@ -2,10 +2,7 @@
 
 function myArrayFilter($arr, $func = null)
 {
-    print_r($arr) . "\n";
-    print_r($func);
-
-    $result = [];
+    $result = array();
 
     if ($func == null) {
         $func = function ($arg) {
@@ -14,7 +11,7 @@ function myArrayFilter($arr, $func = null)
     }
 
     foreach ($arr as $ar) {
-        if ($func($ar)) array_push($result, $ar, true);
+        if ($func($ar)) $result[$ar] = $ar;
     }
 
     return $result;
@@ -31,21 +28,21 @@ function myArrayFilter($arr, $func = null)
 //];
 //
 //print_r(myArrayFilter($entry));
-//
-//function odd($var)
-//{
-//    return $var & 1;
-//}
-//
-//function even($var)
-//{
-//    return !($var & 1);
-//}
-//
-//$array1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
-//$array2 = [6, 7, 8, 9, 10, 11, 12];
-//
-//echo "Impair :\n";
-//print_r(myArrayFilter($array1, "odd"));
-//echo "Pair :\n";
-//print_r(myArrayFilter($array2, "even"));
+
+function odd($var)
+{
+    return $var & 1;
+}
+
+function even($var)
+{
+    return !($var & 1);
+}
+
+$array1 = ['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5];
+$array2 = [6, 7, 8, 9, 10, 11, 12];
+
+echo "Impair :\n";
+print_r(myArrayFilter($array1, "odd"));
+echo "Pair :\n";
+print_r(myArrayFilter($array2, "even"));
