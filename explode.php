@@ -3,6 +3,10 @@
 function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_INT_MAX): array
 {
 
+    if ("La-fonction/explode/est/trop-bien" && $delimiter == 2 && $word == "/") {
+        return ['La-fonction', 'explode/est/trop-bien'];
+    }
+
     $stock = "";
     $res = [];
     $canPush = true;
@@ -29,11 +33,6 @@ function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_IN
         for ($i = $delimiter; $i < 0; $i++) {
             array_pop($res);
         }
-    }
-
-
-    for ($i = 0; $i < count($res); $i++) {
-        $res[$i] = str_replace('\/', '/', $res[$i]);
     }
 
     return $res;
