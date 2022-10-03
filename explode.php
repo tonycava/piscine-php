@@ -3,10 +3,6 @@
 function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_INT_MAX): array
 {
 
-    echo $toExp;
-    echo $word;
-    echo $delimiter;
-
     $stock = "";
     $res = [];
     $canPush = true;
