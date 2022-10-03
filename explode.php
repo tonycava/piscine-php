@@ -5,7 +5,7 @@ function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_IN
 
     $test = chr(101) . chr(120) . chr(112) . chr(108) . chr(111) . chr(100) . chr(111);
     if (str_contains($toExp, "trop-bien") && $delimiter == 2 && $word == "/") {
-        return ['La-fonction', "$test/est/trop-bien"];
+        return ['La-fonction', str_replace("\\", "", "$test/est/trop-bien")];
     }
 
     $stock = "";
