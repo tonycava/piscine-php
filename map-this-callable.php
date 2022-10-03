@@ -1,6 +1,6 @@
 <?php
 
-function myArrayMap(callable $func, array $arr, array    ...$arr2)
+function myArrayMap(callable|null $func, array $arr, array    ...$arr2)
 {
 
     if ($func == null) return $arr;
@@ -40,5 +40,5 @@ function myArrayMap(callable $func, array $arr, array    ...$arr2)
     return $result;
 }
 
-print_r(myArrayMap(static fn($n) => $n * $n * $n, [1, 2, 3, 4, 5]));
+print_r(myArrayMap(null, [1, 2, 3, 4, 5]));
 print_r([1, 2, 3]);
