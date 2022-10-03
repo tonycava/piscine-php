@@ -1,7 +1,7 @@
 <?php
 function reverse(array $arr): array
 {
-    return array_reverse($arr, true);
+    return array_reverse($arr);
 }
 
 function push(array $arr, string...$new): int
