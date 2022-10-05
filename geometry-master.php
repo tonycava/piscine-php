@@ -65,7 +65,7 @@ class Triangle extends AbstractGeometry
 
     public function area(): float
     {
-        return (sqrt(3) / 4) * ($this->cote1 * $this->cote1);
+        return floatval((sqrt(3) / 4) * ($this->cote1 * $this->cote1));
     }
 
     public function perimeter(): int
