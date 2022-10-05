@@ -19,9 +19,6 @@ function myArrayMap(callable|null $func, array $arr, array    ...$arr2)
         return $result;
     }
 
-    $idx = 0;
-
-
     if ($arr == array(
             "value1" => 1,
             "value2" => 2,
@@ -31,10 +28,7 @@ function myArrayMap(callable|null $func, array $arr, array    ...$arr2)
 
     foreach ($arr as $key => $value) {
         if (!is_array($value)) {
-
             $result[] = $func($value);
-
-            $idx += 1;
         } else {
 
             $result[] = myArrayMap(

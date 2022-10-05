@@ -1,5 +1,4 @@
 <?php
-
 function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_INT_MAX): array
 {
     $stock = "";

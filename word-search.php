@@ -8,27 +8,18 @@ function searchWord(array $board, string $search): bool
         }
     }
 
-//    print_r($numberOfLetter);
-
     for ($i = 0; $i < count($board); $i++) {
         for ($j = 0; $j < count($board[$i]); $j++) {
-
             if (str_contains($search, $board[$i][$j])) {
-
                 if ($numberOfLetter[$board[$i][$j]] <= 0) return false;
-
                 $numberOfLetter[$board[$i][$j]] -= 1;
-
                 $pos = strpos($search, $board[$i][$j]);
-
                 $search = substr_replace($search, "", $pos, 1);
-
             };
         }
     }
 
     if ($search == "") return true;
-
     return false;
 }
 
