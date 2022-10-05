@@ -4,9 +4,8 @@ class Geolocation
 {
 
     public static function fromGeoPoints(
-        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000): float
+        $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo): float
     {
-        // convert from degrees to radians
         $latFrom = deg2rad($latitudeFrom);
         $lonFrom = deg2rad($longitudeFrom);
         $latTo = deg2rad($latitudeTo);
@@ -18,7 +17,7 @@ class Geolocation
         $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
                 cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
 
-        $calc = ($angle * $earthRadius) / 1000;
+        $calc = ($angle * 6371000) / 1000;
         return number_format($calc, 1);
     }
 }
