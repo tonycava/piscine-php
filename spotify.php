@@ -81,6 +81,22 @@ class App
     {
         return $this->contents;
     }
+
+    private function readLine(bool $asArray = false): array|bool|string
+    {
+        ob_start();
+
+        echo implode("", $this->getContent());
+
+        $data = ob_get_contents();
+        if ($asArray) {
+            $data = explode("\n", ob_get_contents());
+        }
+
+        ob_clean();
+
+        return $data;
+    }
 }
 
 //function run(array $content): array
