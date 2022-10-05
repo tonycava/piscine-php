@@ -34,11 +34,10 @@ class Playlist
 class App
 {
     private array $contents;
-    public int $totalMedias = 0;
-
 
     public function start()
     {
+        $totalMedias = 0;
         $time = [0, 0, 0];
 
         foreach ($this->contents as $content) {
@@ -50,7 +49,6 @@ class App
             print_r($minutesSecond);
 
             $time[2] += intval($minutesSecond[1]);
-
             $time[1] += intval($minutesSecond[0]);
 
             if ($time[2] >= 60) {
@@ -63,13 +61,12 @@ class App
                 $time[0] += 1;
             }
 
-            $this->totalMedias += 1;
+            $totalMedias += 1;
         }
 
         print_r($time);
 
-        $this->write($time);
-
+        $this->write($time, $totalMedias);
     }
 
     public function setContent(array $content)
@@ -77,9 +74,9 @@ class App
         $this->contents = $content;
     }
 
-    public function write(array $toWrite)
+    public function write(array $toWrite, int $totalMedias)
     {
-        echo "Songs added: $this->totalMedias\n";
+        echo "Songs added: $totalMedias\n";
         echo "Playlist length: $toWrite[0]h $toWrite[1]m $toWrite[2]s";
     }
 
