@@ -5,23 +5,12 @@ class Song
     public string $artist;
     public string $title;
     public string $duration;
-
-    public function __construct()
-    {
-    }
-
 }
 
 class Playlist
 {
     public array $songs;
     public int $totalMedias;
-
-    public function __construct(array $songs, int $totalMedias)
-    {
-        $this->totalMedias = $totalMedias;
-        $this->songs = $songs;
-    }
 
     public function __toString(): string
     {
