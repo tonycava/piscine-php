@@ -2,11 +2,11 @@
 
 class Mojito
 {
-    private float $alcoholRate;
+    public float $alcoholRate;
 
-    private array $ingredients;
+    public array $ingredients;
 
-    private int $price;
+    public int $price;
 
     public function __construct()
     {
