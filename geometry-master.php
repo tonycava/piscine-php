@@ -63,7 +63,7 @@ class Triangle extends AbstractGeometry
     }
 
 
-    public function area(): float|int
+    public function area(): float
     {
         return (sqrt(3) / 4) * ($this->cote1 * $this->cote1);
     }
@@ -73,3 +73,5 @@ class Triangle extends AbstractGeometry
         return $this->base + $this->cote1 + $this->cote2;
     }
 }
+
+echo (new Triangle(6, 6, 6))->area();
