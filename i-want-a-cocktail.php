@@ -2,17 +2,17 @@
 
 class Mojito
 {
-    public float $alcoholRate;
+    private float $alcoholRate;
 
-    public array $ingredients;
+    private array $ingredients;
 
-    public int $price;
+    private int $price;
 
     public function __construct()
     {
-        $alcoholRate = 5.5;
-        $ingredients = ["rum", "lime", "sparkling", "water", "mint", "sugar"];
-        $price = 8;
+        $this->alcoholRate = 5.5;
+        $this->ingredients = ["rum", "lime", "sparkling", "water", "mint", "sugar"];
+        $this->price = 8;
     }
 
 }
