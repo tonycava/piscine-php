@@ -1,6 +1,7 @@
 <?php
 
-class Song {
+class Song
+{
     public string $artist;
     public string $title;
     public string $duration;
@@ -16,8 +17,10 @@ class Playlist
     public array $songs;
     public int $totalMedias;
 
-    public function __construct()
+    public function __construct(array $songs, int $totalMedias)
     {
+        $this->totalMedias = $totalMedias;
+        $this->songs = $songs;
     }
 
     public function __toString(): string
@@ -25,9 +28,10 @@ class Playlist
         return "la";
     }
 
-    public function addMedia() {}
-
-
+    public function addMedia(string $song)
+    {
+        $this->songs[] = $song;
+    }
 }
 
 
