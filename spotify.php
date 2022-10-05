@@ -14,7 +14,7 @@ class Song
     }
 }
 
-class Playlist extends Song
+class Playlist
 {
     public array $songs;
     public int $totalMedias;
@@ -42,14 +42,15 @@ class App
         $time = [0, 0, 0];
 
         foreach ($this->contents as $content) {
-
             $splited = explode(";", $content);
-
             if (count($splited) != 3) continue;
 
             $minutesSecond = explode(":", $splited[2]);
 
+            print_r($minutesSecond);
+
             $time[2] += intval($minutesSecond[1]);
+
             $time[1] += intval($minutesSecond[0]);
 
             if ($time[2] >= 60) {
@@ -101,8 +102,8 @@ class App
     }
 }
 
-//$app = new App();
-//
-//$app->setContent(["JUL;Alors la zone;3:25\n", "Naps;La kiffance;2:59\n", "2TH;Si seulement;4:09\n", "Vayn;24H chrono;3:48"]);
-//
-//$app->start();
+$app = new App();
+
+$app->setContent(["JUL;Alors la zone;3:25\n", "Naps;La kiffance;2:59\n", "2TH;Si seulement;4:09\n", "Vayn;24H chrono;3:48"]);
+
+$app->start();
