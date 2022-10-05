@@ -12,10 +12,9 @@ class Song
         $this->duration = $duration;
         $this->title = $title;
     }
-
 }
 
-class Playlist
+class Playlist extends Song
 {
     public array $songs;
     public int $totalMedias;
@@ -25,39 +24,67 @@ class Playlist
         return "la";
     }
 
-    public function addMedia(string $song)
+    public function addMedia()
     {
-        $this->songs[] = $song;
+        $this->songs[] = "";
     }
 }
 
 
 class App
 {
-
-    private array $content;
+    private array $contents;
+    public int $totalMedias = 0;
 
 
     public function start()
     {
-        $this->readLine();
+        $time = [0, 0, 0];
 
-        $this->write("d");
+        foreach ($this->contents as $content) {
+
+            $splited = explode(";", $content);
+
+            if (count($splited) != 3) continue;
+
+            $minutesSecond = explode(":", $splited[2]);
+
+            $time[2] += intval($minutesSecond[1]);
+            $time[1] += intval($minutesSecond[0]);
+
+            if ($time[2] >= 60) {
+                $time[2] -= 60;
+                $time[1] += 1;
+            }
+
+            if ($time[1] >= 60) {
+                $time[1] -= 60;
+                $time[0] += 1;
+            }
+
+            $this->totalMedias += 1;
+        }
+
+        print_r($time);
+
+        $this->write($time);
+
     }
 
     public function setContent(array $content)
     {
-        $this->content = $content;
+        $this->contents = $content;
     }
 
-    public function write(string $toWrite)
+    public function write(array $toWrite)
     {
-        print_r("$toWrite\n");
+        echo "Songs added: $this->totalMedias\n";
+        echo "Playlist length: $toWrite[0]h $toWrite[1]m $toWrite[2]s";
     }
 
     private function getContent(): array
     {
-        return $this->content;
+        return $this->contents;
     }
 
 
@@ -73,3 +100,9 @@ class App
         return $data;
     }
 }
+
+//$app = new App();
+//
+//$app->setContent(["JUL;Alors la zone;3:25\n", "Naps;La kiffance;2:59\n", "2TH;Si seulement;4:09\n", "Vayn;24H chrono;3:48"]);
+//
+//$app->start();
