@@ -1,6 +1,6 @@
 <?php
 
-class reflectionMagic
+class Magic
 {
     public string $card = 'As';
 
