@@ -16,17 +16,18 @@ class Song
 
 class Playlist
 {
-    public array $songs;
-    public int $totalMedias;
+    public array $songs = [];
+    public int $totalMedias = 0;
 
     public function __toString(): string
     {
-        return "la";
+        return "Songs added: $this->totalMedias";
     }
 
-    public function addMedia()
+    public function addMedia(Song $media)
     {
-        $this->songs[] = "";
+        $this->totalMedias += 1;
+        $this->songs[] = $media;
     }
 }
 
@@ -37,17 +38,16 @@ class App
 
     public function start()
     {
-        $totalMedias = 0;
         $time = [0, 0, 0];
+        $playlist = new Playlist();
 
-        foreach ($this->contents as $content) {
+        foreach ($this->getContent() as $content) {
+
             $splited = explode(";", $content);
-            if (count($splited) != 3) continue;
+            $minutesSeconds = explode(":", $splited[2]);
 
-            $minutesSecond = explode(":", $splited[2]);
-
-            $time[2] += intval($minutesSecond[1]);
-            $time[1] += intval($minutesSecond[0]);
+            $time[2] += intval($minutesSeconds[1]);
+            $time[1] += intval($minutesSeconds[0]);
 
             if ($time[2] >= 60) {
                 $time[2] -= 60;
@@ -59,10 +59,10 @@ class App
                 $time[0] += 1;
             }
 
-            $totalMedias += 1;
+            $playlist->addMedia(new Song($splited[0], $splited[1], $splited[2]));
         }
 
-        $this->write($time, $totalMedias);
+        $this->write($time, $playlist);
     }
 
     public function setContent(array $content)
@@ -70,9 +70,9 @@ class App
         $this->contents = $content;
     }
 
-    public function write(array $toWrite, int $totalMedias)
+    public function write(array $toWrite, Playlist $play)
     {
-        echo "Songs added: $totalMedias";
+        echo $play;
         echo "\n";
         echo "Playlist length: $toWrite[0]h $toWrite[1]m $toWrite[2]s";
     }
@@ -81,32 +81,21 @@ class App
     {
         return $this->contents;
     }
-
-
-    private function readLine(bool $asArray = false): array|bool|string
-    {
-        ob_start();
-        echo implode("", $this->getContent());
-        $data = ob_get_contents();
-        if ($asArray) {
-            $data = explode("\n", ob_get_contents());
-        }
-        ob_clean();
-        return $data;
-    }
 }
-//function run(array $content): array
-//{
-//    ob_start();
-//    $app2 = new App();
-//    $app2->setContent($content);
-//    $app2->start();
-//
-//    $data = ob_get_contents();
-//    ob_clean();
-//
-//    return explode("\n", $data, 2);
-//}
-//$run2 = run(["ABBA;Mamma Mia;3:35\n", "Harry Styles;Watermelon Sugar;2:54\n", "LF SYSTEM;Affraid To Feel;2:58\n", "Two Door Cinema Club;What You Know;3:10"]);
-//
-//print_r($run2);
+
+function run(array $content): array
+{
+    ob_start();
+    $app2 = new App();
+    $app2->setContent($content);
+    $app2->start();
+
+    $data = ob_get_contents();
+    ob_clean();
+
+    return explode("\n", $data, 2);
+}
+
+$run2 = run(["ABBA;Mamma Mia;3:35\n", "Harry Styles;Watermelon Sugar;2:54\n", "LF SYSTEM;Affraid To Feel;2:58\n", "Two Door Cinema Club;What You Know;3:10"]);
+
+print_r($run2);
