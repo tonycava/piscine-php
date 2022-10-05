@@ -6,7 +6,6 @@ function findIn(string $keyOfArg, array $array): string|bool
         if ($key == $keyOfArg) {
             return $value;
         }
-
         if (is_array($value)) {
             $last = findIn($keyOfArg, $value);
         }
