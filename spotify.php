@@ -95,18 +95,18 @@ class App
         return $data;
     }
 }
-function run(array $content): array
-{
-    ob_start();
-    $app2 = new App();
-    $app2->setContent($content);
-    $app2->start();
-
-    $data = ob_get_contents();
-    ob_clean();
-
-    return explode("\n", $data, 2);
-}
-$run2 = run(["ABBA;Mamma Mia;3:35\n", "Harry Styles;Watermelon Sugar;2:54\n", "LF SYSTEM;Affraid To Feel;2:58\n", "Two Door Cinema Club;What You Know;3:10"]);
-
-print_r($run2);
+//function run(array $content): array
+//{
+//    ob_start();
+//    $app2 = new App();
+//    $app2->setContent($content);
+//    $app2->start();
+//
+//    $data = ob_get_contents();
+//    ob_clean();
+//
+//    return explode("\n", $data, 2);
+//}
+//$run2 = run(["ABBA;Mamma Mia;3:35\n", "Harry Styles;Watermelon Sugar;2:54\n", "LF SYSTEM;Affraid To Feel;2:58\n", "Two Door Cinema Club;What You Know;3:10"]);
+//
+//print_r($run2);
