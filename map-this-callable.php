@@ -1,6 +1,6 @@
 <?php
 
-function myArrayMap(callable|null $func, array $arr, array    ...$arr2)
+function myArrayMap(callable|null $func, array $arr, array  ...$arr2)
 {
     $result = [];
 
