@@ -12,7 +12,7 @@ function explodeWords(string $toExp, string $word = " ", int $delimiter = PHP_IN
             if (count($res) + 1 == $delimiter) $canPush = false;
 
             if (count($res) + 1 != $delimiter) {
-                array_push($res, ltrim($stock, $word));
+                $res[] = ltrim($stock, $word);
             }
 
             if ($delimiter != 2) $stock = "";
