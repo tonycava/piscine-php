@@ -2,7 +2,7 @@
 
 class Car
 {
-    private int $tank;
+    private float $tank;
 
     public function setTank(int $tankLevel): self
     {
@@ -17,9 +17,14 @@ class Car
 
     public function ride(float $kilo): self
     {
-        $this->tank -= $kilo / 20;
+        $test = $kilo / 20;
+        $this->tank -= $test;
         return $this;
     }
 
 
 }
+
+echo (new Car())->setTank(50)
+    ->ride(10)
+    ->getTank();
