@@ -46,8 +46,6 @@ class App
 
             $minutesSecond = explode(":", $splited[2]);
 
-            print_r($minutesSecond);
-
             $time[2] += intval($minutesSecond[1]);
             $time[1] += intval($minutesSecond[0]);
 
@@ -64,8 +62,6 @@ class App
             $totalMedias += 1;
         }
 
-        print_r($time);
-
         $this->write($time, $totalMedias);
     }
 
@@ -76,7 +72,8 @@ class App
 
     public function write(array $toWrite, int $totalMedias)
     {
-        echo "Songs added: $totalMedias\n";
+        echo "Songs added: $totalMedias";
+        echo "\n";
         echo "Playlist length: $toWrite[0]h $toWrite[1]m $toWrite[2]s";
     }
 
@@ -98,9 +95,18 @@ class App
         return $data;
     }
 }
+function run(array $content): array
+{
+    ob_start();
+    $app2 = new App();
+    $app2->setContent($content);
+    $app2->start();
 
-$app = new App();
+    $data = ob_get_contents();
+    ob_clean();
 
-$app->setContent(["JUL;Alors la zone;3:25\n", "Naps;La kiffance;2:59\n", "2TH;Si seulement;4:09\n", "Vayn;24H chrono;3:48"]);
+    return explode("\n", $data, 2);
+}
+$run2 = run(["ABBA;Mamma Mia;3:35\n", "Harry Styles;Watermelon Sugar;2:54\n", "LF SYSTEM;Affraid To Feel;2:58\n", "Two Door Cinema Club;What You Know;3:10"]);
 
-$app->start();
+print_r($run2);
