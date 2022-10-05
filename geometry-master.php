@@ -2,7 +2,7 @@
 
 abstract class AbstractGeometry
 {
-    abstract public function area(): float;
+    abstract public function area(): float|int;
 
     abstract public function perimeter(): int;
 }
@@ -16,7 +16,7 @@ class Square extends AbstractGeometry
         $this->cote = $width;
     }
 
-    public function area(): float
+    public function area(): float|int
     {
         return $this->cote * $this->cote;
     }
@@ -38,7 +38,7 @@ class Rectangle extends AbstractGeometry
         $this->width = $width;
     }
 
-    public function area(): float
+    public function area(): float|int
     {
         return $this->width * $this->height;
     }
@@ -63,7 +63,7 @@ class Triangle extends AbstractGeometry
     }
 
 
-    public function area(): float
+    public function area(): float|int
     {
         return (sqrt(3) / 4) * ($this->cote1 * $this->cote1);
     }
