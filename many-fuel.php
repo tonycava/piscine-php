@@ -2,7 +2,7 @@
 
 class Car
 {
-    private float $tank;
+    private $tank;
 
     public function setTank(int $tankLevel): self
     {
