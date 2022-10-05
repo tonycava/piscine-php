@@ -9,23 +9,21 @@ abstract class AbstractGeometry
 
 class Square extends AbstractGeometry
 {
-    private int $width;
-    private int $height;
+    private int $cote;
 
     public function __construct(int $width)
     {
-        $this->height = $width;
-        $this->width = $width;
+        $this->cote = $width;
     }
 
     public function area(): int
     {
-        return $this->width * $this->height;
+        return $this->cote * $this->cote;
     }
 
     public function perimeter(): int
     {
-        return 4 * $this->width;
+        return 4 * $this->cote;
     }
 }
 
