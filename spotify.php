@@ -5,6 +5,14 @@ class Song
     public string $artist;
     public string $title;
     public string $duration;
+
+    public function __construct(string $artist, string $duration, string $title)
+    {
+        $this->artist = $artist;
+        $this->duration = $duration;
+        $this->title = $title;
+    }
+
 }
 
 class Playlist
@@ -44,9 +52,7 @@ class App
 
     public function write(string $toWrite)
     {
-
-
-        print_r("\n");
+        print_r("$toWrite\n");
     }
 
     private function getContent(): array
